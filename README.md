@@ -1,2 +1,111 @@
-# Sale-Management-System-for-Shopee-Seller
-Implementing a SMS for Shopee Seller 
+# HappyHome - E-commerce Logistics & Order Management System (OMS)
+
+![Project Status](https://img.shields.io/badge/status-active-success.svg)
+![PHP](https://img.shields.io/badge/PHP-8.0+-777BB4.svg)
+![MySQL](https://img.shields.io/badge/MySQL-Triggers-4479A1.svg)
+![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-F2C811.svg)
+
+**HappyHome OMS** is a comprehensive solution designed to streamline the order fulfillment process for e-commerce businesses (specifically Shopee). It automates the flow from order synchronization to inventory deduction using advanced **Database Triggers** and provides real-time insights via **Power BI**.
+
+---
+
+## 📸 Screenshots
+
+### 1. Sales Performance Dashboard (Power BI)
+![Dashboard Overview]()
+*Real-time analytics of Revenue, Best-selling products, and Order Status.*
+
+### 2. Data Modeling (Star Schema)
+![Data Model]()
+*Optimized Star Schema design for high-performance reporting.*
+
+### 3. Inventory Management
+![Inventory UI]()
+*Real-time stock tracking with "Available" vs "Reserved" logic.*
+
+---
+
+## 🚀 Key Features
+
+### 🛒 Order Management
+- **Shopee Sync Simulation:** Simulates fetching orders from Shopee API (supports Random & Bulk order testing).
+- **Order Validation:** Automatically validates raw JSON data against warehouse SKUs.
+- **Workflow:** Pending -> Confirmed -> Picked & Shipped -> Delivered/Returned.
+
+### 📦 Smart Inventory Control (The Core)
+- **Real-time Deduction:** Stock is deducted immediately upon shipment.
+- **Reservation System:** Stock is "Reserved" when an order is Confirmed, preventing overselling.
+- **Negative Stock Protection:** Database constraints block any transaction that would cause stock to drop below zero.
+
+### 📊 Business Intelligence
+- **Star Schema Design:** Built for scalable analytics.
+- **Key Metrics:** Monthly Revenue Trend, Return Rate, Top Products.
+- **Power BI Integration:** Direct connection to MySQL for live reporting.
+
+---
+
+## 🛠 Tech Stack
+
+* **Backend:** PHP (Native), Apache Web Server (XAMPP).
+* **Database:** MySQL / MariaDB.
+* **Frontend:** HTML5, CSS3, JavaScript, Bootstrap.
+* **Analytics:** Microsoft Power BI Desktop/Service.
+
+---
+
+## 🧠 Database Architecture (Advanced)
+
+The system relies heavily on **MySQL Triggers** to ensure data integrity without relying solely on application code:
+
+1.  `trg_inventory_txn_no_negative`: **Prevents** goods issue if stock is insufficient.
+2.  `trg_inventory_balance_update`: **Auto-updates** `on_hand_qty` in the balance table whenever a transaction occurs.
+3.  `trg_reservation_insert`: **Locks** inventory (moves from Available to Reserved) upon Order Confirmation.
+4.  `trg_salesorder_status_history`: **Auto-logs** every status change for audit trails.
+
+---
+
+## ⚙️ Installation & Setup
+
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/mthuy04/happyhome-oms.git](https://github.com/mthuy04/happyhome-oms.git)
+    ```
+
+2.  **Database Setup**
+    - Open phpMyAdmin.
+    - Create a database named `sms_shopee`.
+    - Import the `database/sms_shopee_full.sql` file.
+
+3.  **Configure Connection**
+    - Edit `includes/config.php`:
+    ```php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "sms_shopee";
+    ```
+
+4.  **Run the Project**
+    - Start Apache & MySQL in XAMPP.
+    - Access via browser: `http://localhost/happyhome/`
+
+---
+
+## 📈 Usage Scenario (Demo Flow)
+
+1.  **Sync Orders:** Go to *Shopee Orders* > Click **Sync API** to fetch new simulation orders.
+2.  **Validate:** Review raw JSON data and convert to Sales Orders.
+3.  **Confirm:** Approve the order (Trigger automatically reserves stock).
+4.  **Pick & Ship:** Process the shipment (Trigger deducts physical stock).
+5.  **Analyze:** Open Power BI to view the impact on revenue and inventory.
+
+---
+
+## 👤 Author
+
+**[NGUYỄN MINH THUÝ[**
+* **Role:** Full-stack Developer & Data Analyst
+* **University:** VNUIS
+* **Contact:** mthuy68.work@gmail.com
+
+---
