@@ -12,16 +12,15 @@
 ## 📸 Screenshots
 
 ### 1. Sales Performance Dashboard (Power BI)
-![Dashboard Overview]()
-*Real-time analytics of Revenue, Best-selling products, and Order Status.*
+<img width="980" height="553" alt="Ảnh màn hình 2025-12-31 lúc 21 32 02" src="https://github.com/user-attachments/assets/031f707f-73c3-42cd-a81d-b2dcb5290884" />
 
-### 2. Data Modeling (Star Schema)
-![Data Model]()
-*Optimized Star Schema design for high-performance reporting.*
+### 2. Dashboard (WEB UI)
+<img width="1440" height="814" alt="Ảnh màn hình 2025-12-31 lúc 16 55 13" src="https://github.com/user-attachments/assets/d09cd7ce-bc87-4abd-a578-8d54f200f67e" />
+
 
 ### 3. Inventory Management
-![Inventory UI]()
-*Real-time stock tracking with "Available" vs "Reserved" logic.*
+<img width="1440" height="781" alt="Ảnh màn hình 2026-01-04 lúc 16 40 39" src="https://github.com/user-attachments/assets/b04003df-74b9-4dfb-8c77-3cf130f48a67" />
+
 
 ---
 
@@ -68,13 +67,13 @@ The system relies heavily on **MySQL Triggers** to ensure data integrity without
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/mthuy04/happyhome-oms.git](https://github.com/mthuy04/happyhome-oms.git)
+    git clone [https://github.com/mthuy04/happyhome-oms.git](https://github.com/mthuy04/Sale-Management-System-for-Shopee-Seller)]https://github.com/mthuy04/Sale-Management-System-for-Shopee-Seller
     ```
 
 2.  **Database Setup**
     - Open phpMyAdmin.
     - Create a database named `sms_shopee`.
-    - Import the `database/sms_shopee_full.sql` file.
+    - Import the `database/sms_shopee.sql` file.
 
 3.  **Configure Connection**
     - Edit `includes/config.php`:
